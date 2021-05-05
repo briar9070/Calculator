@@ -1,0 +1,2 @@
+Create fucntions which can add, subtract, divide, and multiply two numbers.
+Create a separate function called "operate" which will take an operator and two numbers and intiate one of the above functions as applicable.
