@@ -2,3 +2,26 @@
     height: 50px;
     width: 100px;
 }
+
+.equalsButton {
+    height: 50px;
+    width: 100px;
+}
+#formulaDisplay {
+    height: 30px;
+
+}
+
+#calculatorDisplay {
+    height: 30px;
+}
+
+.operatorButton {
+    height: 50px;
+    width: 100px;
+}
+
+.clearButton {
+    height: 50px;
+    width: 100px;
+}
