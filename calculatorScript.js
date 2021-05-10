@@ -4,7 +4,6 @@ let addedValueToCaluculate = "";
 
 
 
-
 let additionFunction = function ( a , b ) {
     return (parseInt(a) + parseInt(b));
 }
@@ -32,7 +31,15 @@ let subtractionFunction = function ( a, b ) {
          return divisionFunction (a,b);
      }
  }
-
+function updateAddedValueToCalculate (a){
+    return addedValueToCaluculate = a;
+}
+function updateTotalCalculate (a){
+    return totalCalculated = parseInt(a);
+}
+function updateOperator (a) {
+    return operator = a;
+}
  //Update formula bar
     function updateFormulaBar (){
         forumlaTextBox = document.querySelector("#formulaDisplay");
@@ -52,14 +59,29 @@ let subtractionFunction = function ( a, b ) {
             operator = userOperatorChoice;
             return [totalCalculated, displayValue];
         }
+        else if (addedValueToCaluculate == ""){
+            addedValueToCaluculate = parseInt(displayValue.innerHTML);
+            let calculation = operatorCommand(totalCalculated,operator,addedValueToCaluculate);
+            updateFormulaBar();
+            displayValue.innerHTML = parseInt(calculation);
+            console.log(calculation);  
+            totalCalculated = calculation;
+            updateTotalCalculate(calculation);
+            addedValueToCaluculate = "";
+            updateAddedValueToCalculate(addedValueToCaluculate);
+            operator = userOperatorChoice;
+            updateOperator (operator);
+            displayValue.textContent = "";
+        }
         else if (totalCalculated !== "") {
-            addedValueToCaluculate = displayValue.innerHTML;
             operator = userOperatorChoice;
             displayValue.textContent = "";
             return [addedValueToCaluculate, operator];
         }
     }
+function operatorFunction (){
 
+};
     let displayValue = document.querySelector("#calculatorDisplay");
      document.querySelectorAll(".numberButton").forEach(numberPressed => 
         numberPressed.addEventListener('click', function (e){
@@ -78,11 +100,17 @@ let subtractionFunction = function ( a, b ) {
 
     equalsPressed = document.querySelector(".equalsButton");
     equalsPressed.addEventListener('click', function(e){
-        addedValueToCaluculate = displayValue.innerHTML;
+        addedValueToCaluculate = parseInt(displayValue.innerHTML);
         let calculation = operatorCommand(totalCalculated,operator,addedValueToCaluculate);
         updateFormulaBar();
         displayValue.textContent = calculation;
-          console.log(calculation);  
+        console.log(calculation);  
+        totalCalculated = parseInt(calculation);
+        updateTotalCalculate(calculation);
+        addedValueToCaluculate = "";
+        updateAddedValueToCalculate(addedValueToCaluculate);
+        operator = "";
+        updateOperator (operator);
         }); //issue is that the equals formula does not have access to the updated values of totalCalculated,operator, and 
 
     clearButton = document.querySelector(".clearButton");
