@@ -36,7 +36,7 @@ let subtractionFunction = function ( a, b ) {
  //Update formula bar
     function updateFormulaBar (){
         forumlaTextBox = document.querySelector("#formulaDisplay");
-        forumlaTextBox.textContent = `${parseInt(totalCalculated)}` + " " + `${operator}` + " " + `${parseInt(addedValueToCaluculate)}`;
+        forumlaTextBox.textContent = `${totalCalculated}` + " " + `${operator}` + " " + `${addedValueToCaluculate}`;
     }
     function clearAllItems () {
         displayValue.textContent = "";
@@ -72,6 +72,7 @@ let subtractionFunction = function ( a, b ) {
         operatorPressed.addEventListener('click', function(e){
             userOperatorChoice = e.originalTarget.id;
             addingValueToFormuala(userOperatorChoice);
+            updateFormulaBar();
             return [totalCalculated, operator, addedValueToCaluculate];
         }));
 
@@ -79,6 +80,8 @@ let subtractionFunction = function ( a, b ) {
     equalsPressed.addEventListener('click', function(e){
         addedValueToCaluculate = displayValue.innerHTML;
         let calculation = operatorCommand(totalCalculated,operator,addedValueToCaluculate);
+        updateFormulaBar();
+        displayValue.textContent = calculation;
           console.log(calculation);  
         }); //issue is that the equals formula does not have access to the updated values of totalCalculated,operator, and 
 
