@@ -47,6 +47,7 @@ function updateOperator (a) {
     }
     function clearAllItems () {
         displayValue.textContent = "";
+        forumlaTextBox.textContent = "";
         totalCalculated = "";
         operator = "";
         addedValueToCaluculate = "";
@@ -59,11 +60,11 @@ function updateOperator (a) {
             operator = userOperatorChoice;
             return [totalCalculated, displayValue];
         }
-        else if (addedValueToCaluculate == ""){
+        else if (addedValueToCaluculate == "" && operator !== ""){
             addedValueToCaluculate = parseInt(displayValue.innerHTML);
             let calculation = operatorCommand(totalCalculated,operator,addedValueToCaluculate);
             updateFormulaBar();
-            displayValue.innerHTML = parseInt(calculation);
+            displayValue.innerHTML = calculation;
             console.log(calculation);  
             totalCalculated = calculation;
             updateTotalCalculate(calculation);
@@ -73,8 +74,9 @@ function updateOperator (a) {
             updateOperator (operator);
             displayValue.textContent = "";
         }
-        else if (totalCalculated !== "") {
+        else if (operator == "") {
             operator = userOperatorChoice;
+            
             displayValue.textContent = "";
             return [addedValueToCaluculate, operator];
         }
