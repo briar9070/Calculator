@@ -2,6 +2,7 @@ let totalCalculated = "";
 let operator = "";
 let addedValueToCaluculate = "";
 
+let forumlaTextBox = document.querySelector("#formulaDisplay");
 
 
 let additionFunction = function ( a , b ) {
@@ -94,9 +95,18 @@ function operatorFunction (){
     let displayValue = document.querySelector("#calculatorDisplay");
      document.querySelectorAll(".numberButton").forEach(numberPressed => 
         numberPressed.addEventListener('click', function (e){
-            console.log(e.originalTarget.id);
-            displayValue.textContent += parseInt(e.originalTarget.id);
-            return displayValue;
+            if (displayValue.textContent == totalCalculated){
+                clearAllItems();
+                console.log(e.originalTarget.id);
+                displayValue.textContent = parseInt(e.originalTarget.id);
+                return displayValue;
+            }
+            else {
+                console.log(e.originalTarget.id);
+                displayValue.textContent += parseInt(e.originalTarget.id);
+                return displayValue;
+            }
+            
             }));
            
     document.querySelectorAll(".operatorButton").forEach(operatorPressed => 
