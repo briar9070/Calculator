@@ -14,7 +14,14 @@ let subtractionFunction = function ( a, b ) {
      return (parseInt(a) * parseInt(b));
  }
  let divisionFunction = function ( a , b ) {
-     return (parseInt(a) / parseInt(b));
+     if ( parseInt(b) === 0){
+         return "You can't do that dawg";
+     }
+     else{
+        answer = (parseInt(a) / parseInt(b));
+        return (Math.round(answer * 100000) / 100000);
+     }
+     
  }
 
  function operatorCommand(a, operator, b) {
@@ -94,15 +101,25 @@ function operatorFunction (){
            
     document.querySelectorAll(".operatorButton").forEach(operatorPressed => 
         operatorPressed.addEventListener('click', function(e){
+           if (displayValue.textContent === ""){
+               return
+           }
+           else {
             userOperatorChoice = e.originalTarget.id;
             addingValueToFormuala(userOperatorChoice);
             updateFormulaBar();
             return [totalCalculated, operator, addedValueToCaluculate];
+           }
+            
         }));
 
     equalsPressed = document.querySelector(".equalsButton");
     equalsPressed.addEventListener('click', function(e){
-        addedValueToCaluculate = parseInt(displayValue.innerHTML);
+        if (totalCalculated === "" || operator === "" ){
+            return
+        }
+        else{
+            addedValueToCaluculate = parseInt(displayValue.innerHTML);
         let calculation = operatorCommand(totalCalculated,operator,addedValueToCaluculate);
         updateFormulaBar();
         displayValue.textContent = calculation;
@@ -113,6 +130,8 @@ function operatorFunction (){
         updateAddedValueToCalculate(addedValueToCaluculate);
         operator = "";
         updateOperator (operator);
+        }
+        
         }); //issue is that the equals formula does not have access to the updated values of totalCalculated,operator, and 
 
     clearButton = document.querySelector(".clearButton");
