@@ -1,15 +1,18 @@
 .numberButton {
+    font-family: 'Exo 2', sans-serif;
     height: 50px;
     width: 100px;
 }
 
 .equalsButton {
+    font-family: 'Exo 2', sans-serif;
     height: 50px;
     width: 100px;
 }
 #formulaDisplay {
     height: 30px;
-
+    font-family: 'Exo 2', sans-serif;
+    font-style: italic;
 }
 
 #calculatorDisplay {
@@ -17,11 +20,18 @@
 }
 
 .operatorButton {
+    font-family: 'Exo 2', sans-serif;
     height: 50px;
     width: 100px;
 }
 
 .clearButton {
+    font-family: 'Exo 2', sans-serif;
     height: 50px;
     width: 100px;
+}
+
+
+#calculatorDisplay {
+    font-family: 'Exo 2', sans-serif;
 }
