@@ -1,34 +1,111 @@
+body {
+    height: 100vh;
+    background-color: grey;
+    display: flex;
+    flex-wrap:nowrap;
+    align-items: center;
+    justify-content: center;
+    /*flex-direction: column;*/
+}
+#calculatorBody {
+    
+    width: 420px;
+    border:5px solid black;
+    border-radius: 10px;
+    background-color: black;
+
+    
+    
+}
 .numberButton {
     font-family: 'Exo 2', sans-serif;
-    height: 50px;
+    height: 75px;
     width: 100px;
+    margin: 1px 1px;
+    font-size: 18px;
+    background-color:white;
+    border: 0px;
+    
+}
+
+.numberButton:hover {
+    color: orange;
+}
+
+.numberButton:active {
+    background-color: rgb(253, 206, 119);
 }
 
 .equalsButton {
     font-family: 'Exo 2', sans-serif;
-    height: 50px;
+    height: 75px;
     width: 100px;
+    margin: 1px 1px;
+    font-size: 18px;
+    background-color:white;
+    border: 0px;
 }
+
+.equalsButton:hover {
+    color:springgreen;
+}
+
+.equalsButton:active {
+    background-color: rgb(123, 253, 188);
+}
+
 #formulaDisplay {
-    height: 30px;
+    background-color: honeydew;
+    height: 60px;
+    width: 420px;
     font-family: 'Exo 2', sans-serif;
     font-style: italic;
+    font-size: 20px;
+    border-bottom: 1px dashed black;
+    border-radius: 5px;
 }
 
 #calculatorDisplay {
-    height: 30px;
+    background-color: honeydew;
+    height: 70px;
+    width: 420px;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 30px;
+    border-radius: 5px;
 }
 
 .operatorButton {
     font-family: 'Exo 2', sans-serif;
-    height: 50px;
+    height: 75px;
     width: 100px;
+    margin: 1px 1px;
+    font-size: 18px;
+    background-color:white;
+    border: 0px;
 }
 
+.operatorButton:hover {
+    color:rgb(19, 201, 195);
+}
+
+.operatorButton:active {
+    background-color: rgb(162, 211, 209);
+}
 .clearButton {
     font-family: 'Exo 2', sans-serif;
-    height: 50px;
+    height: 75px;
     width: 100px;
+    margin: 1px 1px;
+    font-size: 18px;
+    background-color:white;
+    border: 0px;
+}
+.clearButton:hover {
+    color:red;
+}
+
+.clearButton:active {
+    background-color: rgb(255, 129, 129);
 }
 
 
